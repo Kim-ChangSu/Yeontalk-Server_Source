@@ -21,8 +21,6 @@
 
   $me_id = "";
 
-  // User Login Time Update
-  mysqli_query($connection, "UPDATE  users SET user_login_time = '$user_login_time' WHERE user_device_id = '$user_device_id' ");
 
   // Fetch me
   $query_fetch_me = "SELECT * FROM users WHERE user_device_id = '{$user_device_id}'";  
@@ -45,6 +43,9 @@
     
      array_push($response_fetch_me ,array("me_id" => $row[0], "me_device_id" => $row[1], "me_nickname" => $row[2], "me_gender" => $row[3], "me_birthyear" => $row[4], "me_nation" => $row[5], "me_region" => $row[6], "me_login_time" => $row[7], "me_profile_image" => $row[8],"me_introduction" => $row[9], "me_point" => $row[10], "me_images" => $response_image));
     }
+
+    // User Login Time Update
+  mysqli_query($connection, "UPDATE  users SET user_login_time = '$user_login_time' WHERE user_id = '$me_id' ");
 
   // Fetch chatbot
   $query_fetch_chatbot = "SELECT * FROM users ";

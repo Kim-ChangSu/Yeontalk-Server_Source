@@ -42,6 +42,8 @@
   $query_fetch_users .= "AND user_region = '{$selection_region}' ";  
   }
 
+  $query_fetch_users .= "AND user_device_id != 'chatbot' ";
+
   $query_fetch_users .= "AND user_profile_image != '' ";
 
   $query_fetch_users .= "AND user_login_time < $user_login_time_loaded_last ";

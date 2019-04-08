@@ -9,26 +9,21 @@
     $user_nation = "대한민국";
     $user_region = "서울";
 
-    $login_time = time();
+    $login_time = 1554376371;
     $user_profile_image = "";
     $user_introduction = "";
     $user_point = 0;
 
+    $user_id = 2766;
 
-    for($i = 1; $i < 50; $i++) {
+    for($i = 1; $i < 48; $i++) {
 
-		$query = "INSERT INTO users (user_device_id, user_nickname, user_gender, user_birthyear, user_nation, user_region, user_login_time, user_profile_image, user_introduction, user_point) ";
-	    $query .= "VALUES ('{$user_device_id}', '{$user_nickname}', '{$user_gender}', '{$user_birthyear}', '{$user_nation}', '{$user_region}', '{$login_time}', '{$user_profile_image}', '{$user_introduction}', '{$user_point}') ";
 
-	    $registeration_user_query = mysqli_query($connection, $query);
+        $login_time = $login_time - ($i*10);
 
-	    if(!$registeration_user_query) {
-	        
-	        echo "QUERY FAILED ." . mysqli_error($connection);
-	        
-	    } else {
-	        echo "Success";
-	    }
+		mysqli_query($connection, "UPDATE  users SET user_login_time = '$login_time' WHERE user_id = '$user_id' ");
+
+	    $user_id = $user_id + 1;
         
     }
 

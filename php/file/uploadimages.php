@@ -120,9 +120,7 @@
 
 	$query .= "WHERE user_id = '{$user_id}' ";
 
-	$query .= "ORDER BY image_id DESC ";
-
-	$query .= "LIMIT $images_num ";
+	$query .= "ORDER BY image_id DESC";
 
 	$result = mysqli_query($connection, $query);  
 
